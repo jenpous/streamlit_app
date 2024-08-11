@@ -1,0 +1,7 @@
+folium==0.14.0
+joblib==1.4.2
+matplotlib==3.8.4
+pandas==2.2.2
+scikit_learn==1.5.1
+streamlit==1.32.0
+streamlit_folium==0.21.1
