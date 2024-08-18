@@ -13,6 +13,13 @@ from sklearn.model_selection import train_test_split
 from sklearn.metrics import roc_curve
 from sklearn.metrics import roc_auc_score
 
+# Change working directory to path of actual python file, up one level
+import os
+path =  os.path.dirname(os.path.abspath(__file__))
+os.chdir(path)
+os.chdir('..')
+
+
 st.set_page_config(page_title="Data Modelling", page_icon="📈")
 
 df_ypred = pd.read_pickle('pickle_files/df_road_accidents_yhat_proba.xz')
