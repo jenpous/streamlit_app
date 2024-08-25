@@ -8,12 +8,12 @@ df =  pd.read_pickle('pickle_files/df_road_accidents.xz')
 st.markdown("# Data Exploration")
 #st.sidebar.header("Data Exploration")
 st.write(
-    """INSERT DESCRIPTION"""
+    """The first step is to study and apply methods to clean the dataset"""
 )
 
 st.dataframe(df.head(10), use_container_width=True)
 st.write(df.shape)
 st.dataframe(df.describe(), use_container_width=True)
-if st.checkbox("Show NA") :
-    st.dataframe(df.isna().sum())
+#if st.checkbox("Show NA") :
+#    st.dataframe(df.isna().sum())
 
