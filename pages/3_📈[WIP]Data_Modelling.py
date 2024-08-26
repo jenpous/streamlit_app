@@ -45,7 +45,7 @@ st.write(
     - Random Forest Classifier for a binary target
     - KMeans Cluster with n_cluster = 2
     - XGBoost with GridSearchCV for a binary target
-    - Dense Neural Network for a binary target
+    - Dense Neural Network for a binary target\n
     """
 )
 
@@ -56,7 +56,14 @@ option = st.selectbox(
     ("Random Forest - ternary target", "Random Forest - binary target", "KMeans Cluster", "XGBoost Classifier with Hyperparameter Tuning (grid search)", "XGBOOST OUR MODEL", "Dense Neural Network"))
 
   
-# if option == "Random Forest - ternary target":
+if option == "Random Forest - ternary target":
+    st.write(
+        """
+        Our first models was RandomForest Classifier. We modelled with a ternary target 
+        for the severity of the accident. For the ternary severity target, we have created 3 bins [0,1,2], 
+        derived from severity levels killed, hospitalized and lightly injured.\n
+        """
+    )
 #     y_pred_rf_t = rf_ter_loaded.predict(X_test_loaded_rf_t)
 #     st.dataframe(pd.crosstab(y_test_loaded_rf_t, y_pred_rf_t, rownames=['predicted → actual ↓'], colnames = ['predicted →']))
     
@@ -72,7 +79,15 @@ option = st.selectbox(
     
 #     st.dataframe(cr_df)
 
-# if option == "Random Forest - binary target":
+if option == "Random Forest - binary target":
+    st.write(
+        """
+        For the binary severity target, 
+        we have created 2 bins (people who have been hospitalized/killed: 1 else 0).\n
+        We also examined the feature importance and visualized it with the help of the SHAP-package for the 
+        binary-target model on an instance for target 0 and target 1 respectively.\n
+        """
+    )
 #     model = rf_bin_loaded
     
 #     # generate a no skill prediction (majority class)
