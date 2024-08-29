@@ -2,10 +2,8 @@ import streamlit as st
 
 st.set_page_config(layout='wide')
 
-
-
 st.markdown(
-        "<h2 style='text-align: center; color: black;'>Road Accidents in France: A Classification Project</h2>",
+        "<h1 style='text-align: center; color: black;'>Road Accidents in France:</br> A Classification Project</h1>",
         unsafe_allow_html=True,
     )
 
@@ -66,7 +64,6 @@ st.info(
     """
     Allianz Cohort Data Scientist Sep 2023, DataScientest
 
-    Authors:
     - Ahed Abdelky
     - Alessandro Perani
     - Falk Kegler
