@@ -3,7 +3,7 @@ import pandas as pd
 
 st.set_page_config(page_title="Data Pre-Processing", page_icon="⚙️")
 
-df = pd.read_pickle('pickle_files/df_road_accidents.xz')
+df = pd.read_pickle('model_results/df_road_accidents.xz')
 
 st.markdown("# Data Pre-Processing")
 #st.sidebar.header("Data Exploration")

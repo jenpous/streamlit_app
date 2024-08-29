@@ -1,11 +1,7 @@
 import streamlit as st
 import pandas as pd
-import os
-import matplotlib.pyplot as plt
 import folium
-import joblib
 from streamlit_folium import st_folium
-from sklearn.metrics import classification_report
 
 st.set_page_config(page_title="Risk Zones", page_icon="🚘")
 
@@ -24,7 +20,7 @@ st.write(
 st.markdown('**Map of France divided into risk zones for road accident severity (higher % equals higher risk)**')
 
 
-df_risk_zones = pd.read_pickle('pickle_files/risk_zones.xz')
+df_risk_zones = pd.read_pickle('model_results/xgb_binary_target/risk_zones.xz')
 # https://matplotlib.org/stable/gallery/color/named_colors.html
 center_of_france = [46.71109, 1.7191036]
 

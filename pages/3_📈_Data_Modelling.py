@@ -5,18 +5,8 @@ import os
 st.set_page_config(page_title="Data Modelling", page_icon="📈")
 data_dir = 'model_results/'
 
-# df_ypred = pd.read_pickle('pickle_files/df_road_accidents_yhat_proba.xz')
-# df_risk_zones = pd.read_pickle('pickle_files/risk_zones.xz')
-
-# # Load the trained model from the compressed .xz file
-# rf_ter_loaded = joblib.load('model_results/rfc_ternary_target/rfc_ternary_target.xz')
-# rf_bin_loaded = joblib.load('model_results/rfc_binary_target/rfc_binary_target.xz')
-# X_train_loaded_rf_t, X_test_loaded_rf_t, y_train_loaded_rf_t, y_test_loaded_rf_t = joblib.load('model_results/rfc_ternary_target/train_test_data_rfc_ternary.xz')
-# X_train_loaded_rf_b, X_test_loaded_rf_b, y_train_loaded_rf_b, y_test_loaded_rf_b = joblib.load('model_results/rfc_binary_target/train_test_data_rfc_binary.xz')
-
 
 st.markdown("# Data Modelling")
-# #st.sidebar.header("Data Modelling")
 st.write(
     """
     The objective is to work on a scoring of the risk zones according
@@ -43,7 +33,6 @@ st.write(
     clustering algorithm, with a ROC-AUC score of 0.688, was less effective for this classification task. 
     Based on these results, XGBoost is identified as the most promising model for accurately predicting 
     accident severity, and further tuning of its hyperparameters is recommended to enhance its performance.\n
-    
     """
 )
 
@@ -53,7 +42,6 @@ with colb:
 
 st.divider()
 
-#  #model_results/rfc_ternary_target/train_test_data_rfc_ternary.xz
 st.write(
     """
     **For more information, please select a model.**\n
@@ -206,7 +194,6 @@ if option == "KMeans Cluster":
     """
     )
     
-#     st.write("KMeans")
 
 if option == "XGBoost Classifier":
     st.write(
@@ -248,8 +235,6 @@ if option == "XGBoost Classifier":
         """
     ) 
     
-
-
 if option == "Dense Neural Network":
     st.write(
         """
