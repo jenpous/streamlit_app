@@ -5,21 +5,35 @@ st.markdown("# Conclusion")
 
 st.write(
     """
+    In this project, we utilized data from 2005 to 2018, as variables were redefined, and new variables were 
+    introduced from 2019 onwards, for which no prior data existed. Furthermore, we opted to create a dataset 
+    with one instance per accident. The original data was at the "person" level, so it was necessary to aggregate 
+    this information into an accident-level dataset.\n
+    
     The different models used all resulted in an accuracy of about 72%. The XGBoost model achieved the highest 
     performance with a ROC-AUC score of 0.793, indicating its superior ability to balance sensitivity and specificity.
     The Dense Neural Network (DNN) followed 
     closely with a score of 0.787, demonstrating its effectiveness in capturing complex patterns within the 
-    data. The Random Forest classifier also performed well, achieving a score of 0.780. However, the KMeans 
-    clustering algorithm, with a ROC-AUC score of 0.688, was less effective for this classification task. 
+    data. The Random Forest classifier also performed well, achieving a score of 0.780. However, the KNN 
+    algorithm, with a ROC-AUC score of 0.688, was less effective for this classification task. 
     Based on these results, XGBoost is identified as the most promising model for accurately predicting 
     accident severity, and further tuning of its hyperparameters is recommended to enhance its performance. 
     The addition of external data, such as holiday dates in France, did not improve the forecast accuracy.
+    Interestingly, the results indicated that accident severity was lowest during light rain conditions.
 """
 )
 st.info(
     """
-    Can we write 3-4 sentences about our struggles during the project??\n
-    Data based on accident level vs. user level, FEATURE SELECTION, ....???
+    One challenge we encountered was the large number of categories in the data, particularly for unsupervised 
+    learning methods like K-Means, DBSCAN, and Optics, for which we lacked sufficient computing capacity. 
+    Specifically, for the slack package, we did not have enough computational power to assess the influence of 
+    features on the target at the model level; calculations were only feasible for individual instances.\n
+    For practical implementation, such as deployment as an API, it may be necessary to select a model that 
+    uses only the most significant features or employs a Principal Component Analysis (PCA) to ensure acceptable 
+    performance. To maintain model accuracy, retraining would be required annually due to the observed yearly 
+    decline in both the number of accidents and their severity in France. Additionally, before deploying the model, 
+    further plausibility checks would be necessary; for instance, we excluded overseas territories and would need a 
+    separate model for accidents occurring in regions like the Atlantic or Mediterranean.\n
     
     """
     )

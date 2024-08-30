@@ -14,7 +14,7 @@ st.write(
     In total, 5 different models that were presented throughout the course 
     were created to predict the severity of the accidents.
     - Random Forest Classifier (for ternary target and binary target)
-    - KMeans Cluster with n_cluster = 2
+    - KNN Classifier with k = 2
     - XGBoost with GridSearchCV for a binary target
     - Dense Neural Network for a binary target\n
     The performance of each model was evaluated by calculating performance metrics such as 
@@ -26,11 +26,10 @@ st.write(
     Furthermore, the F1-score was taken into account. This metric is useful for binary 
     classification problems, as it takes into account both, precision and recall to calculate an overall score.
     For the model’s performance, the Area under the **ROC curve** (Roc-AuC) was also calculated.\n
-    The XGBoost model achieved the highest performance with a ROC-AUC score of 0.793, indicating 
+    The XGBoost model achieved the highest performance with a ROC-AuC score of 0.793, indicating 
     its superior ability to balance sensitivity and specificity. The Densep Neural Network (DNN) followed 
     closely with a score of 0.787, demonstrating its effectiveness in capturing complex patterns within the 
-    data. The Random Forest classifier also performed well, achieving a score of 0.780. However, the KMeans 
-    clustering algorithm, with a ROC-AUC score of 0.688, was less effective for this classification task. 
+    data. The Random Forest classifier also performed well, achieving a score of 0.780. However, the KNN algorithm, with a ROC-AuC score of 0.688, was less effective for this classification task. 
     Based on these results, XGBoost is identified as the most promising model for accurately predicting 
     accident severity, and further tuning of its hyperparameters is recommended to enhance its performance.\n
     """
@@ -49,7 +48,7 @@ st.write(
 )
 option = st.selectbox('## *Select a model*',
     ("Random Forest Classifier", 
-     "KMeans Cluster", "Dense Neural Network", "XGBoost Classifier"),
+     "KNN Classifier", "Dense Neural Network", "XGBoost Classifier"),
      label_visibility="collapsed")
 
   
@@ -103,8 +102,8 @@ if option == "Random Forest Classifier":
         st.image(os.path.join(data_dir, 'rfc_binary_target/roc_0780_rfc_binary_target.png'), use_column_width=True)
     st.write(
         """
-        The ROC curve for the logistic regression model shows an **AUC of 0.78**, indicating a moderately 
-        strong ability to distinguish between the positive and negative classes. This AUC value suggests that the model performs 
+        The ROC curve for the logistic regression model shows an **AuC of 0.78**, indicating a moderately 
+        strong ability to distinguish between the positive and negative classes. This AuC value suggests that the model performs 
         significantly better than random guessing, as represented by the "No Skill" line. Overall, the model demonstrates 
         a good balance between sensitivity and specificity, making it a reliable tool for this classification task.
         """
@@ -171,11 +170,12 @@ if option == "Random Forest Classifier":
     )
 
 
-if option == "KMeans Cluster":
+if option == "KNN Classifier":
     st.write(
     """
-    We also tried a KMeans Clustering model to see, if there is a natural cluster-mean for the binary target 
-    representing the severity of the accident.\n
+    K-Nearest Neighbors (KNN) was utilized for predicting road accident severity due to its simplicity and 
+    ability to capture complex, non-linear relationships in the data. The algorithm's flexibility in handling 
+    diverse features and multiclass classification makes it well-suited for this task. \n
     """
     )
     col3, col4, col5 = st.columns([3, 6, 3])
@@ -189,8 +189,12 @@ if option == "KMeans Cluster":
     
     st.write(
     """
-    Due to the high computational intensity of this algorithm, we've limited the KNN to 3 neighbors and 
-    reduced the test set to 10,000 records. This resulted in an **AUC of 0.688**.\n
+    Due to the high computational intensity of this algorithm, we've limited the KNN to k = 3 neighbors and 
+    reduced the test set to 10,000 records. This resulted in an **AuC of 0.688** which indicates that the model 
+    has a moderate level of predictive ability. Specifically, this AUC value means that there is a 68.8% chance 
+    that the model will correctly differentiate between a randomly chosen severe accident and a randomly chosen 
+    non-severe accident. While the model shows some ability to distinguish between different levels of accident 
+    severity, there is room for improvement in its performance.\n
     """
     )
     
@@ -203,7 +207,7 @@ if option == "XGBoost Classifier":
         best model with the help of a grid search cross-validation. Indeed, the model with the best estimators
         {'learning_rate': 0.1, 'max_depth': 5, 'n_estimators': 1000} 
         achieved the highest **accuracy of 73%** among all of the applied models and the highest value for the 
-        **ROC-AUC of 0.793**.\n
+        **ROC-AuC of 0.793**.\n
         """
     ) 
 
@@ -228,8 +232,8 @@ if option == "XGBoost Classifier":
         st.image(os.path.join(data_dir, 'xgb_binary_target/roc_0793_xgb_binary_target.png'), use_column_width=True)
     st.write(
         """
-        The ROC curve for the logistic regression model shows an **AUC of 0.793**, indicating a moderately 
-        strong ability to distinguish between the positive and negative classes. This AUC value suggests that the model performs 
+        The ROC curve for the logistic regression model shows an **AuC of 0.793**, indicating a moderately 
+        strong ability to distinguish between the positive and negative classes. This AuC value suggests that the model performs 
         significantly better than random guessing, as represented by the "No Skill" line. Overall, the model demonstrates 
         a good balance between sensitivity and specificity, making it a reliable tool for this classification task.
         """
@@ -286,8 +290,8 @@ if option == "Dense Neural Network":
         st.image(os.path.join(data_dir, 'dnn_binary_target/roc_0787_DNN_binary_target.png'), use_column_width=True)
     st.write(
         """
-        The ROC curve for the logistic regression model shows an **AUC of 0.787**, indicating a moderately 
-        strong ability to distinguish between the positive and negative classes. This AUC value suggests that the model performs 
+        The ROC curve for the logistic regression model shows an **AuC of 0.787**, indicating a moderately 
+        strong ability to distinguish between the positive and negative classes. This AuC value suggests that the model performs 
         significantly better than random guessing, as represented by the "No Skill" line. Overall, the model demonstrates 
         a good balance between sensitivity and specificity, making it a reliable tool for this classification task.
         """

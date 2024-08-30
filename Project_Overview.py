@@ -68,8 +68,12 @@ st.info(
     - Alessandro Perani
     - Falk Kegler
     - Jennifer Pousada
-
     """)
+st.write(
+    """
+    Credits: The image has been generated using the Deep AI text to image generator at 
+    https://deepai.org/machine-learning-model/text2img.
+         """)
 
 
 
