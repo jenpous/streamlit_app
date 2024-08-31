@@ -14,7 +14,7 @@ st.write(
     In total, 5 different models that were presented throughout the course 
     were created to predict the severity of the accidents.
     - Random Forest Classifier (for ternary target and binary target)
-    - KNN Classifier with k = 2
+    - KNN Classifier (k = 3) for a binary target
     - XGBoost with GridSearchCV for a binary target
     - Dense Neural Network for a binary target\n
     The performance of each model was evaluated by calculating performance metrics such as 
