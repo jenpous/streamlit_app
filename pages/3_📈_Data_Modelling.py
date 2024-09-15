@@ -129,19 +129,6 @@ if option == "Random Forest Classifier":
         """
         )
     
-    st.write(
-    """
-    &nbsp;\n
-    **Sin / Cos Transformation of time variable (hrmn)**\n
-    The time related features “minute of the day” and “month” in the characteristics-Tables 
-    have been replaced using a sin/cos decoding to have nearby times and dates better represented 
-    for the models to learn from them:\n
-    """
-    )
-    
-    st.image(os.path.join(data_dir, 'rfc_binary_target/time_sine_cosine_transformation.png'), use_column_width=True)
-    
-    
 
     st.write(
     """
