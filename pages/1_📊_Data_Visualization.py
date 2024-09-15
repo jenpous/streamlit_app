@@ -48,10 +48,10 @@ with tab1:
     st.write(
         """ 
         From the visuals, we can observe that Males are involved in road accidents at a significantly higher 
-        rate than Females, representing a majority of the cases.This disparity may reflect differences in driving 
+        rate than Females, representing a majority of the cases. This disparity may reflect differences in driving 
         habits, exposure, or risk-taking behaviors between genders. \n
         Most individuals involved in road accidents are either Unharmed or Lightly Injured, indicating that many 
-        accidents result in minor or no injuries.However, a notable portion is Hospitalized, and a small yet significant 
+        accidents result in minor or no injuries. However, a notable portion is Hospitalized, and a small yet significant 
         percentage are Killed, underlining the critical need for safety measures.\n
         """
     )
@@ -182,7 +182,7 @@ with tab3:
     st.write(
         """ 
         It can be observed that the accidents are concentrated in peak hours of the day. 
-        from 10 pm to 6 am, the highest proportions of death and hospitalized cases occur, 
+        From 10 pm to 6 am, the highest proportions of death and hospitalized cases occur, 
         with a peak reached at 3 to 5 am. This suggests that brightness and activity 
         (reason for taking the car) may indirectly impact accident severity and time of day 
         A higher number of accidents during the night is observed on Saturday and Sunday.\n
