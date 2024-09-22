@@ -15,7 +15,7 @@ We developed a predictive tool using an **XGBoost model** to classify road accid
 
 1. **Risk Zone Creation**:
    - **Accident Coordinates**: Each accident's location (latitude and longitude) was used to define its zone.
-   - **Geographical Filtering**: Accidents within mainland France were kept by limiting coordinates to specific boundaries (Lat: 42.0 to 51.0, Long: -5.0 to 10.0).
+   - **Geographical Filtering**: Accidents within mainland France were kept by limiting coordinates to specific boundaries (Lat: 42.0 - 51.0, Long: -5.0 - 10.0).
    - **Zone Calculation**: For each accident, four coordinates were created by rounding lat/long values, forming rectangular risk zones (~11.11 km x 8.29 km). The map was divided into **8219 risk zones**.
 \n
 2. **Accident Severity Prediction**:
@@ -70,4 +70,4 @@ folium.LayerControl(collapsed=True).add_to(m)
 
 # Display the map with the rectangles in Streamlit
 
-st_folium(m, width=700, height=500)
+st_folium(m, width=700, height=500))
