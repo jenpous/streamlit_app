@@ -29,9 +29,58 @@ st.write(
     enabling proactive measures for improving road safety in France."""
 )
 
-tab1, tab2, tab3, tab4 = st.tabs(["Passengers", "Vehicles", "Characteristics", "Places"])
+tab1, tab2, tab3, tab4 = st.tabs(["Vehicles", "Passengers", "Characteristics", "Places"])
 
 with tab1:
+    data_dir = 'attachements/vehicles/'
+    attachements = os.listdir(data_dir)
+
+    st.write('Distribution of Vehicle Category')
+    st.image(os.path.join(data_dir, 'vehicle_cat_dist.png'), use_column_width=True)
+    
+    st.write(
+        """ 
+        Based on the provided categories for the variable catv, we create groups. 
+        This grouping is based on the similarity of vehicle types and their usage.
+        The results depict the distribution of transportation modes: cars dominate at 
+        approximately 71%, followed by motorcycles at 25%, with specialized modes 
+        making up a smaller proportion at 2%. Public transport represents a minimal 
+        fraction, accounting for only about 0.3% of the total.\n
+        """
+    )
+
+    col1, col2 = st.columns([3, 9])
+    with col1:
+        st.write('Nr. of Involved Vehicles')
+        st.image(os.path.join(data_dir, 'involved_veh.png'), use_column_width=True)           
+    
+    with col2:
+        st.write('Distribution of Obstacle hit')
+        st.image(os.path.join(data_dir, 'obst_dist.png'), use_column_width=True)
+        
+    st.write(
+        """ 
+        It can be seen that in most of the accidents 2 vehicles were involved, whereas 
+        still in a considerable number of accidents only one car was involved.\n
+
+        Furthermore, it can be observed that the majority of accidents involve a vehicle hitting 
+        another moving vehicle which is in line with the previous graph 
+        where the highest share of accidents involve 2 vehicles.\n
+        """
+    )
+
+    st.write('Number of Accidents by Severity and Main Maneuver Before Accident')
+    st.image(os.path.join(data_dir, 'manv_severity.png'), use_column_width=True)
+    
+    st.write(
+        """ 
+        The characteristics of the variable main maneuver have been grouped into 5 categories. 
+        The highest level of severity accounts for most of the accidents without change of direction.\n
+        """
+    )   
+
+
+with tab2:
     data_dir = 'attachements/passengers/'
     attachements = os.listdir(data_dir)
     
@@ -92,54 +141,6 @@ with tab1:
         """
     )
 
-
-with tab2:
-    data_dir = 'attachements/vehicles/'
-    attachements = os.listdir(data_dir)
-
-    st.write('Distribution of Vehicle Category')
-    st.image(os.path.join(data_dir, 'vehicle_cat_dist.png'), use_column_width=True)
-    
-    st.write(
-        """ 
-        Based on the provided categories for the variable catv, we create groups. 
-        This grouping is based on the similarity of vehicle types and their usage.
-        The results depict the distribution of transportation modes: cars dominate at 
-        approximately 71%, followed by motorcycles at 25%, with specialized modes 
-        making up a smaller proportion at 2%. Public transport represents a minimal 
-        fraction, accounting for only about 0.3% of the total.\n
-        """
-    )
-
-    col1, col2 = st.columns([3, 9])
-    with col1:
-        st.write('Nr. of Involved Vehicles')
-        st.image(os.path.join(data_dir, 'involved_veh.png'), use_column_width=True)           
-    
-    with col2:
-        st.write('Distribution of Obstacle hit')
-        st.image(os.path.join(data_dir, 'obst_dist.png'), use_column_width=True)
-        
-    st.write(
-        """ 
-        It can be seen that in most of the accidents 2 vehicles were involved, whereas 
-        still in a considerable number of accidents only one car was involved.\n
-
-        Furthermore, it can be observed that the majority of accidents involve a vehicle hitting 
-        another moving vehicle which is in line with the previous graph 
-        where the highest share of accidents involve 2 vehicles.\n
-        """
-    )
-
-    st.write('Number of Accidents by Severity and Main Maneuver Before Accident')
-    st.image(os.path.join(data_dir, 'manv_severity.png'), use_column_width=True)
-    
-    st.write(
-        """ 
-        The characteristics of the variable main maneuver have been grouped into 5 categories. 
-        The highest level of severity accounts for most of the accidents without change of direction.\n
-        """
-    )   
 
 with tab3:
     data_dir = 'attachements/characteristics/'
