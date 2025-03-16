@@ -66,7 +66,7 @@ st.info(
 
     - Ahed Abdelky
     - Alessandro Perani
-    - Falk Kegler
+    - F. K.
     - Jennifer Pousada
     """)
 st.write(
